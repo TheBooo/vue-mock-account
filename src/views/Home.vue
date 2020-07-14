@@ -23,7 +23,7 @@ export default {
     toggleAction() {
       if (this.action === "login") {
         this.action = "signup";
-        this.btnMessage = "Авторизоваться";
+        this.btnMessage = "Авторизация";
       } else {
         this.action = "login";
         this.btnMessage = "Еще нет аккаунта? Зарегистрируйтесь";
