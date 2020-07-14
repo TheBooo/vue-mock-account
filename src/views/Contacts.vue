@@ -4,7 +4,7 @@
     <div class="btn-container">
       <button @click="addContact" class="btn">Добавить контакт</button>
     </div>
-    <AddContact v-if="showForm === true" v-on:cancelForm="closeForm" />
+    <AddContact v-if="showForm === true" v-on:closeForm="closeForm" />
     <main>
       <ContactsContainer />
     </main>

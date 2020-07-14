@@ -2,12 +2,18 @@
   <div class="overlay">
     <form class="overlay-content" v-on:submit.prevent="save">
       <img alt="Vue logo" src="../assets/logo.png" />
+      <div>Изменить контакт</div>
       <div v-if="showNotification === true" class="notification">
         {{ notification }}
       </div>
-      <input type="text" v-model="contact.name" placeholder="Имя" required />
-      <input type="text" v-model="contact.phone" placeholder="Телефон" />
-      <input type="email" v-model="contact.email" placeholder="Email" />
+      <input
+        type="text"
+        v-model="editContact.name"
+        placeholder="Имя"
+        required
+      />
+      <input type="text" v-model="editContact.phone" placeholder="Телефон" />
+      <input type="email" v-model="editContact.email" placeholder="Email" />
       <button @click="save" type="button" class="btn btn-login">
         Сохранить
       </button>
@@ -22,29 +28,20 @@
 import { mapActions } from "vuex";
 
 export default {
-  name: "AddContact",
+  name: "EditContact",
+  props: ["contact"],
   data() {
     return {
-      contact: {
-        name: "",
-        phone: "",
-        email: "",
-      },
+      editContact: this.contact,
       notification: "",
       showNotification: false,
     };
   },
   methods: {
-    ...mapActions(["addContact"]),
+    ...mapActions(["updateContact"]),
     save() {
-      // проверка пустого имени
-      if (this.contact.name.trim()) {
-        this.addContact(this.contact);
-        this.close();
-      } else {
-        this.notification = "Пожалуйста введите имя";
-        this.showNotification = true;
-      }
+      this.updateContact(this.editContact);
+      this.close();
     },
     close() {
       this.$emit("closeForm");
@@ -53,4 +50,4 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style></style>

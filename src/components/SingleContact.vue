@@ -3,14 +3,43 @@
     <div class="contact contact-name">{{ contact.name }}</div>
     <div class="contact contact-phone">{{ contact.phone }}</div>
     <div class="contact contact-email">{{ contact.email }}</div>
-    <div><button class="btn">edit</button><button class="btn">del</button></div>
+    <div>
+      <button @click="editContact" class="btn">edit</button
+      ><button @click="deleteContact(contact.id)" class="btn">del</button>
+    </div>
+
+    <!-- edit component -->
+    <EditContact
+      v-bind:contact="contact"
+      v-if="this.showEditForm === true"
+      v-on:closeForm="closeForm"
+    />
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
+import EditContact from "./EditContact";
+
 export default {
   name: "SingleContact",
+  components: { EditContact },
   props: ["contact"],
+  data() {
+    return {
+      showEditForm: false,
+    };
+  },
+  methods: {
+    ...mapActions(["deleteContact"]),
+    editContact() {
+      this.showEditForm = true;
+    },
+    closeForm() {
+      this.showEditForm = false;
+    },
+  },
 };
 </script>
 
