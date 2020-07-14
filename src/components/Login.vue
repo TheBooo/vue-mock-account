@@ -51,6 +51,9 @@ export default {
         } else if (data[0].password === this.password) {
           //если пользователь есть и пароль правильный переход к контактам
           this.$router.push("/contacts");
+
+          //сохраняем данные в session storage, здесь должен был быть x-auth-token
+          sessionStorage.setItem("user", JSON.stringify(data[0]));
         } else {
           //если пароль неправильный
           this.notification = "Неправильный логин или пароль";
@@ -61,6 +64,9 @@ export default {
         this.showNotification = true;
       }
     },
+  },
+  created() {
+    sessionStorage.getItem("user") ? this.$router.push("/contacts") : "";
   },
 };
 </script>
