@@ -47,7 +47,6 @@ export default {
         //если нет такого пользователя
         if (data.length === 0) {
           this.notification = "Неправильный логин или пароль";
-          this.showNotification = true;
         } else if (data[0].password === this.password) {
           //если пользователь есть и пароль правильный переход к контактам
           this.$router.push("/contacts");
@@ -57,11 +56,9 @@ export default {
         } else {
           //если пароль неправильный
           this.notification = "Неправильный логин или пароль";
-          this.showNotification = true;
         }
       } catch (error) {
         this.notification = `sorry, something went wrong`;
-        this.showNotification = true;
       }
     },
   },
