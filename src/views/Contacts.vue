@@ -40,7 +40,6 @@ export default {
 
 <style scoped>
 main {
-  display: flex;
   margin: 2rem auto;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   padding: 1rem;
