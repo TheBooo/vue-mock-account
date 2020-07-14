@@ -1,9 +1,8 @@
 <template>
   <header class="header">
-    <button @click="exit" class="btn btn-exit">exit</button>
-
     <img alt="Vue logo" src="../assets/logo.png" class="logo" />
     <h1>Контакты</h1>
+    <button @click="exit" class="btn btn-exit">exit</button>
   </header>
 </template>
 
@@ -31,6 +30,8 @@ export default {
   width: auto;
 }
 .btn-exit {
-  float: right;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
 </style>
