@@ -1,7 +1,6 @@
 <template>
   <div class="overlay">
     <form class="overlay-content" v-on:submit.prevent="save">
-      <img alt="Vue logo" src="../assets/logo.png" />
       <div v-if="showNotification === true" class="notification">
         {{ notification }}
       </div>
