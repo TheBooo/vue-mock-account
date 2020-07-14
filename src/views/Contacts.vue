@@ -2,17 +2,17 @@
   <div>
     <Header />
     <main>
-      <Contacts />
+      <ContactsContainer />
     </main>
   </div>
 </template>
 
 <script>
-import Contacts from "../components/Contacts";
+import ContactsContainer from "../components/ContactsContainer";
 import Header from "../components/Header";
 
 export default {
-  components: { Contacts, Header },
+  components: { ContactsContainer, Header },
 
   created() {
     // проверка токена авторизации, в теории - с запросом на бэк
