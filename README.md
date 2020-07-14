@@ -1,24 +1,23 @@
-# vue-auth
+# vue-mock-account
 
-## Project setup
+## Запуск проекта
+
+Для реализации аутентификации и БД используются mock данные (https://github.com/typicode/json-server)
+
+Установить локальный JSON сервер
 ```
+npm install -g json-server
+```
+В папке с проектом запустить JSON сервер
+```
+json-server --watch db.json
+```
+Открыть https://thebooo.github.io/vue-mock-account/dist
+
+### для dev версии:
+```
+npm install -g json-server
+json-server --watch db.json
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
