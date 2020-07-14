@@ -24,4 +24,8 @@ export default {
 </script>
 
 <style scoped>
+img {
+  height: 5rem;
+  margin-bottom: 3rem;
+}
 </style>

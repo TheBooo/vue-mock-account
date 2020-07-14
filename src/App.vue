@@ -74,4 +74,16 @@ input::placeholder {
   border-radius: 0.5rem;
   font-size: 1.4rem;
 }
+
+@media (max-width: 992px) {
+  form {
+    width: 90%;
+  }
+  input {
+    width: 100%;
+  }
+  .btn-login {
+    width: 100%;
+  }
+}
 </style>
