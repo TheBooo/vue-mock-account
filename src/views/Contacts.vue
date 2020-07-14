@@ -1,6 +1,10 @@
 <template>
   <div>
     <Header />
+    <div class="btn-container">
+      <button @click="addContact" class="btn">Добавить контакт</button>
+    </div>
+    <AddContact v-if="showForm === true" v-on:cancelForm="closeForm" />
     <main>
       <ContactsContainer />
     </main>
@@ -10,10 +14,23 @@
 <script>
 import ContactsContainer from "../components/ContactsContainer";
 import Header from "../components/Header";
+import AddContact from "../components/AddContact";
 
 export default {
-  components: { ContactsContainer, Header },
-
+  components: { ContactsContainer, Header, AddContact },
+  data() {
+    return {
+      showForm: false,
+    };
+  },
+  methods: {
+    addContact() {
+      this.showForm = true;
+    },
+    closeForm() {
+      this.showForm = false;
+    },
+  },
   created() {
     // проверка токена авторизации, в теории - с запросом на бэк
     sessionStorage.getItem("user") ? "" : this.$router.push("/");
@@ -30,6 +47,11 @@ main {
   width: 70%;
   max-width: 1160px;
   background-color: var(--bg-accent);
+}
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 @media (max-width: 992px) {

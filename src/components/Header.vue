@@ -2,7 +2,7 @@
   <header class="header">
     <img alt="Vue logo" src="../assets/logo.png" class="logo" />
     <h1>Контакты</h1>
-    <button @click="exit" class="btn btn-exit">exit</button>
+    <button @click="exit" class="btn btn-exit">Выйти</button>
   </header>
 </template>
 

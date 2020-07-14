@@ -85,6 +85,26 @@ input::placeholder {
   border-radius: 0.5rem;
 }
 
+/* -- overlay -- */
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  /*background: rgba(0, 61, 124, 0.9);*/
+  background: rgba(0, 43, 54, 0.85);
+  z-index: 20;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.overlay-content {
+  z-index: 21;
+}
+
 @media (max-width: 992px) {
   form {
     width: 90%;

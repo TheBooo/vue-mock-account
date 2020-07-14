@@ -16,10 +16,14 @@ const actions = {
     commit("setContacts", response.data);
   },
 
-  async addContact({ commit }, name, phone, email) {
+  async addContact({ commit }, newContact) {
     const response = await axios.post(
       "https://jsonplaceholder.typicode.com/users",
-      { name, phone, email }
+      {
+        name: newContact.name,
+        phone: newContact.phone,
+        email: newContact.email,
+      }
     );
     commit("newContact", response.data);
   },
