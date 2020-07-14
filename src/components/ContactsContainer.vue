@@ -21,6 +21,7 @@ export default {
   components: { SingleContact },
   computed: {
     ...mapGetters(["allContacts"]),
+    // поиск контакта по имени
     filteredContacts() {
       return this.allContacts.filter((contact) =>
         contact.name.toLowerCase().includes(this.search.toLowerCase())

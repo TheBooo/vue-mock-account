@@ -4,8 +4,8 @@
     <div class="contact contact-phone">{{ contact.phone }}</div>
     <div class="contact contact-email">{{ contact.email }}</div>
     <div class="container-btns">
-      <button @click="editContact" class="btn"><PlaylistEdit /></button
-      ><button @click="deleteContact(contact.id)" class="btn btn-delete">
+      <button @click="editContact" class="btn"><PlaylistEdit /></button>
+      <button @click="deleteContact(contact.id)" class="btn btn-delete">
         <Delete />
       </button>
     </div>
