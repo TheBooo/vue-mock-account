@@ -57,7 +57,7 @@ export default {
           this.notification = "Неправильный логин или пароль";
         }
       } catch (error) {
-        this.notification = `sorry, something went wrong`;
+        this.notification = `Что-то пошло не так`;
       }
     },
   },
