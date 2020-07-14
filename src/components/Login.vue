@@ -42,7 +42,6 @@ export default {
           `http://localhost:3000/users?username=${this.username}`
         );
         const data = response.data;
-        console.log(data);
         // ---- мок проверки, все это должно быть на бэке ----
         //если нет такого пользователя
         if (data.length === 0) {
@@ -52,7 +51,7 @@ export default {
           this.$router.push("/contacts");
 
           //сохраняем данные в session storage, здесь должен был быть x-auth-token
-          sessionStorage.setItem("user", JSON.stringify(data[0]));
+          sessionStorage.setItem("user", JSON.stringify(data[0].username));
         } else {
           //если пароль неправильный
           this.notification = "Неправильный логин или пароль";
@@ -63,7 +62,7 @@ export default {
     },
   },
   created() {
-    sessionStorage.getItem("user") ? this.$router.push("/contacts") : "";
+    sessionStorage.getItem("user") ? this.$router.push("/contacts") : ""; // проверка токена авторизации
   },
 };
 </script>
