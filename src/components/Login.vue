@@ -50,8 +50,8 @@ export default {
           //если пользователь есть и пароль правильный переход к контактам
           this.$router.push("/contacts");
 
-          //сохраняем данные в session storage, здесь должен был быть x-auth-token
-          sessionStorage.setItem("user", JSON.stringify(data[0].username));
+          //сохраняем данные в session storage, здесь должен был быть токен авторизации
+          sessionStorage.setItem("user", data[0].username);
         } else {
           //если пароль неправильный
           this.notification = "Неправильный логин или пароль";
@@ -62,7 +62,8 @@ export default {
     },
   },
   created() {
-    sessionStorage.getItem("user") ? this.$router.push("/contacts") : ""; // проверка токена авторизации
+    // здесь должна быть проверка токена авторизации
+    sessionStorage.getItem("user") ? this.$router.push("/contacts") : "";
   },
 };
 </script>

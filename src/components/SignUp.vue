@@ -42,32 +42,29 @@ export default {
       // здесь анимация загрузки
       this.notification = "загрузка...";
       this.showNotification = true;
+
       //проверка совпадения паролей
       if (this.repeatPassword === this.password) {
         //ajax запросы
         try {
           //Далее много проверок, которые должны быть на бэке
-          // проверка человека с таким ником
+
+          // проверка человека с таким именем
           const response = await axios.get(
             `http://localhost:3000/users?username=${this.username}`
           );
           const data = response.data;
           if (data.length === 0) {
-            //
-            //если такого нет, регистрация
+            //если такого имени нет, регистрация
             const response = await axios.post("http://localhost:3000/users", {
               email: this.email,
               username: this.username,
               password: this.password,
             });
-            //если успешно сохраняем "x-auth-token"
+
+            //если успешно сохраняем токен
             if (response.status === 201) {
-              sessionStorage.setItem(
-                "user",
-                JSON.stringify({
-                  username: this.username,
-                })
-              );
+              sessionStorage.setItem("user", this.username);
               this.$router.push("/contacts");
             } else {
               this.notification = "Что-то пошло не так";
