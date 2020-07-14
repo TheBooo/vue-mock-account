@@ -39,6 +39,7 @@ export default {
     save() {
       // проверка пустого имени
       if (this.contact.name.trim()) {
+        console.log(this.contact);
         this.addContact(this.contact);
         this.close();
       } else {

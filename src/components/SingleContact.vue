@@ -5,9 +5,9 @@
     <div class="contact contact-email">{{ contact.email }}</div>
     <div>
       <button @click="editContact" class="btn">edit</button
-      ><button @click="deleteContact(contact.id)" class="btn">del</button>
+      ><button @click="removeContact(contact.id)" class="btn">del</button>
     </div>
-
+    <div v-if="showLoading === true">загрузка...</div>
     <!-- edit component -->
     <EditContact
       v-bind:contact="contact"
@@ -29,12 +29,17 @@ export default {
   data() {
     return {
       showEditForm: false,
+      showLoading: false,
     };
   },
   methods: {
     ...mapActions(["deleteContact"]),
+    removeContact(id) {
+      this.showLoading = true;
+      this.deleteContact(id);
+    },
     editContact() {
-      this.showEditForm = true;
+      this.showEditForm = true; // дисплей компонента редактирования
     },
     closeForm() {
       this.showEditForm = false;

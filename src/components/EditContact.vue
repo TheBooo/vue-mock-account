@@ -47,6 +47,9 @@ export default {
       this.$emit("closeForm");
     },
   },
+  created() {
+    console.log(this.contact.id);
+  },
 };
 </script>
 

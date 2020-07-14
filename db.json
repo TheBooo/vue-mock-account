@@ -12,5 +12,19 @@
       "username": "NotTheBooo",
       "password": "1234q"
     }
+  ],
+  "contacts": [
+    {
+      "id": 3,
+      "name": "Андрей",
+      "email": "andrew@yandex.ru",
+      "phone": "+79097893929"
+    },
+    {
+      "name": "Макс",
+      "phone": "123456789",
+      "email": "email@email.com",
+      "id": 5
+    }
   ]
 }

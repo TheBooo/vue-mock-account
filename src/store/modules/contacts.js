@@ -10,33 +10,28 @@ const getters = {
 
 const actions = {
   async fetchContacts({ commit }) {
-    const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/users"
-    );
+    const response = await axios.get("http://localhost:3000/contacts");
     commit("setContacts", response.data);
   },
 
   async addContact({ commit }, newContact) {
-    const response = await axios.post(
-      "https://jsonplaceholder.typicode.com/users",
-      {
-        name: newContact.name,
-        phone: newContact.phone,
-        email: newContact.email,
-      }
-    );
+    const response = await axios.post("http://localhost:3000/contacts", {
+      name: newContact.name,
+      phone: newContact.phone,
+      email: newContact.email,
+    });
     commit("newContact", response.data);
   },
 
   async deleteContact({ commit }, id) {
-    await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
+    await axios.delete(`http://localhost:3000/contacts/${id}`);
 
     commit("removeContact", id);
   },
 
   async updateContact({ commit }, updatedContact) {
     const response = await axios.put(
-      `https://jsonplaceholder.typicode.com/todos/${updatedContact.id}`,
+      `http://localhost:3000/contacts/${updatedContact.id}`,
       updatedContact
     );
     commit("updateContact", response.data);
@@ -45,7 +40,7 @@ const actions = {
 
 const mutations = {
   setContacts: (state, contacts) => (state.contacts = contacts),
-  newContact: (state, contact) => state.contacts.unshift(contact),
+  newContact: (state, contact) => state.contacts.push(contact),
   removeContact: (state, id) =>
     (state.contacts = state.contacts.filter((contact) => contact.id !== id)),
   updateContact: (state, updatedContact) => {
