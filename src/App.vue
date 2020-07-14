@@ -75,6 +75,16 @@ input::placeholder {
   font-size: 1.4rem;
 }
 
+.notification {
+  color: var(--bg);
+  font-size: 2rem;
+  font-weight: 500;
+  background-color: var(--accent);
+  padding: 0rem 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+}
+
 @media (max-width: 992px) {
   form {
     width: 90%;
