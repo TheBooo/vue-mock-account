@@ -2,6 +2,9 @@
   <div class="overlay">
     <form class="overlay-content" v-on:submit.prevent="save">
       <img alt="Vue logo" src="../assets/logo.png" />
+      <div v-if="showNotification === true" class="notification">
+        {{ notification }}
+      </div>
       <input type="text" v-model="contact.name" placeholder="Имя" required />
       <input type="text" v-model="contact.phone" placeholder="Телефон" />
       <input type="email" v-model="contact.email" placeholder="Email" />
@@ -27,13 +30,21 @@ export default {
         phone: "",
         email: "",
       },
+      notification: "",
+      showNotification: false,
     };
   },
   methods: {
     ...mapActions(["addContact"]),
     save() {
-      this.addContact(this.contact);
-      this.cancel();
+      // проверка пустого имени
+      if (this.contact.name.trim()) {
+        this.addContact(this.contact);
+        this.cancel();
+      } else {
+        this.notification = "Пожалуйста введите имя";
+        this.showNotification = true;
+      }
     },
     cancel() {
       this.$emit("cancelForm");
