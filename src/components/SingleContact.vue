@@ -3,9 +3,11 @@
     <div class="contact contact-name">{{ contact.name }}</div>
     <div class="contact contact-phone">{{ contact.phone }}</div>
     <div class="contact contact-email">{{ contact.email }}</div>
-    <div>
-      <button @click="editContact" class="btn">edit</button
-      ><button @click="deleteContact(contact.id)" class="btn">del</button>
+    <div class="container-btns">
+      <button @click="editContact" class="btn"><PlaylistEdit /></button
+      ><button @click="deleteContact(contact.id)" class="btn btn-delete">
+        <Delete />
+      </button>
     </div>
     <!-- edit component -->
     <EditContact
@@ -21,9 +23,13 @@ import { mapActions } from "vuex";
 
 import EditContact from "./EditContact";
 
+//icons
+import PlaylistEdit from "vue-material-design-icons/PlaylistEdit";
+import Delete from "vue-material-design-icons/Delete";
+
 export default {
   name: "SingleContact",
-  components: { EditContact },
+  components: { EditContact, PlaylistEdit, Delete },
   props: ["contact"],
   data() {
     return {
@@ -63,6 +69,22 @@ export default {
   font-size: 2rem;
 }
 
+.container-btns {
+  display: flex;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.3rem;
+}
+.btn-delete {
+  background-color: var(--bg);
+}
+.btn-delete:hover {
+  background-color: darkred;
+}
 @media (max-width: 992px) {
   .single-contact {
     font-size: 1.1rem;
