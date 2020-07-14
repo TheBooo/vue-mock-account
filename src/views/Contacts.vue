@@ -25,8 +25,16 @@ export default {
 main {
   display: flex;
   margin: 2rem auto;
-  border: 1px solid white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
   width: 70%;
   max-width: 1160px;
+  background-color: var(--bg-accent);
+}
+
+@media (max-width: 992px) {
+  main {
+    width: 100%;
+  }
 }
 </style>
